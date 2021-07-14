@@ -1,0 +1,24 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "form API",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
+  },
+  "author": "Igor Kl",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.9",
+    "supertest": "^6.1.3"
+  }
+}

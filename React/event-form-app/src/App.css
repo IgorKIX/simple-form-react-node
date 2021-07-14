@@ -1,0 +1,30 @@
+main {
+    height: 100vh;
+}
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.interface-box {
+    flex: 1 1 40%;
+    background: var(--yellow);
+}
+
+.list-box {
+    flex: 1 1 60%;
+    background: var(--green-light);
+}
+
+.loading-container {
+    display: grid;
+    place-items: center;
+
+    height: 100vh;
+    width: 100vw;
+
+    background: var(--yellow);
+    color: black;
+    font-size: 60px;
+}

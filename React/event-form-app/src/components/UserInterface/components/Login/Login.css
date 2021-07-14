@@ -1,0 +1,5 @@
+.login-container {
+    height: 100vh;
+    display: grid;
+    grid-template: 70% 1fr / auto;
+}
