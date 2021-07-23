@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:4200/users";
+const url = "http://localhost:4000/events";
 
 const getAll = async () => {
     const request = await axios.get(url);

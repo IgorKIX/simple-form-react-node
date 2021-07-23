@@ -2,14 +2,12 @@ import mongoose from 'mongoose';
 import User from "./models/User.js";
 import Event from "./models/Event.js";
 
-// Deleted login info for the safety reason
-const LOGIN = '';
-const PASSWORD = '';
-
 export function connectDB() {
-    mongoose.connect(`mongodb+srv://${LOGIN}:${PASSWORD}@cluster0.mtqmv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
-        { useUnifiedTopology: true,  useNewUrlParser: true },
-        () => console.log('Connected to DB!'));
+    mongoose.connect(`mongodb://mongo_db:27017/event_app`, { useUnifiedTopology: true,  useNewUrlParser: true });
+
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'Connection error'));
+    db.once('opne', () => console.log('Connected'));
 }
 
 // Users

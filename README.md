@@ -1,23 +1,12 @@
 # simple-form-react-node
 
+This is a simple app which allows you to creat the user and then creat the event which will be associated with just added user.
+
 ## Installation
 
-Go to the folders where you can find the code for the React & node app, so it will be `React/event-form-app` and `/node`.
+The app is using a mongodb container so to make it works you need to install a docker on your computer.
 
-Inside both of this dirs write the `npm install` command to get all the necessary dependencies.
+After getting the docker on your computer you can enter to the main dir which contains ./node & ./React. There you have to run the `docker-compose up`. The installation process can take a moment
 
-### React:
+After that you can go to your browser and check the `http://localhost:3000/`, where you should find that the app is running.
 
-I left couple `console.log` to show what infromartions comes from the backend.
-
-To start the app write `npm start`
-
-For testing write `npm test`
-
-### Node:
-
-Node is using the cloud storage for mongoDB
-
-To start the server write `npm start`
-
-To run tests use this command: `npm test`

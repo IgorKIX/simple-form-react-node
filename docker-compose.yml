@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  node_app:
+    container_name: node_app
+    restart: unless-stopped
+    build: ./node
+    ports:
+      - 4000:4000
+    networks:
+      - full_app
+    depends_on:
+      - mongo_db
+
+  react_app:
+    container_name: react_app
+    stdin_open: true
+    restart: unless-stopped
+    build: ./React
+    ports:
+      - 3000:3000
+    depends_on:
+      - node_app
+    networks:
+      - full_app
+
+  mongo_db:
+    image: mongo:3.6.19-xenial
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - full_app
+
+networks:
+  full_app:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
