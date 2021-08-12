@@ -1,4 +1,5 @@
-import DatePickerField from "./components/DatePickerField/DatePickerField";
+import PropTypes from "prop-types";
+import DatePickerField from "../../../../shared/DatePickerField";
 import { ErrorMessage, Field, Formik, Form } from "formik";
 
 const AddEventView = ({ onSubmit, initialValues, validation }) => {
@@ -30,6 +31,12 @@ const AddEventView = ({ onSubmit, initialValues, validation }) => {
       </Formik>
     </div>
   );
+};
+
+AddEventView.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  initialValues: PropTypes.object.isRequired,
+  validation: PropTypes.object.isRequired,
 };
 
 export default AddEventView;

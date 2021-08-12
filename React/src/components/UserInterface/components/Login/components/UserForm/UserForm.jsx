@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import userService from "../../../../../../services/user";
 import * as Yup from "yup";
 import UserFormView from "./UserForm.view";
@@ -43,6 +44,12 @@ const UserForm = ({ users, setUsers, setCurrentUser }) => {
       validationSchema={validationSchema}
     />
   );
+};
+
+UserForm.propTypes = {
+  users: PropTypes.array.isRequired,
+  setUsers: PropTypes.func.isRequired,
+  setCurrentUser: PropTypes.func.isRequired,
 };
 
 export default UserForm;

@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import PropTypes from "prop-types";
 import eventsService from "../../../../services/events";
 import React from "react";
 import AddEventView from "./AddEvent.view";
@@ -38,9 +39,15 @@ const AddEvent = ({ currentUser, events, setEvents }) => {
     <AddEventView
       onSubmit={onSubmit}
       initialValues={initialValues}
-      validationSchema={validation}
+      validation={validation}
     />
   );
+};
+
+AddEvent.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  events: PropTypes.array.isRequired,
+  setEvents: PropTypes.func.isRequired,
 };
 
 export default AddEvent;

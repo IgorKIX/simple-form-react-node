@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Formik, Form } from "formik";
+import PropTypes from "prop-types";
 import React from "react";
 import "./UserForm.css";
 
@@ -40,6 +41,12 @@ const UserFormView = ({ onSubmit, initValues, validationSchema }) => {
       </Formik>
     </div>
   );
+};
+
+UserFormView.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  initValues: PropTypes.object.isRequired,
+  validationSchema: PropTypes.object.isRequired,
 };
 
 export default UserFormView;
