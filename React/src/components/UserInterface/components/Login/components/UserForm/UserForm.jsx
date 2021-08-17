@@ -1,9 +1,14 @@
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import userService from "../../../../../../services/user";
 import * as Yup from "yup";
 import UserFormView from "./UserForm.view";
+import { UsersContext } from "../../../../../../context/Users";
+import { CurrentUserContext } from "../../../../../../context/CurrentUser";
 
-const UserForm = ({ users, setUsers, setCurrentUser }) => {
+const UserForm = () => {
+  const [users, setUsers] = useContext(UsersContext);
+  const setCurrentUser = useContext(CurrentUserContext)[1];
+
   const onSubmit = (values) => {
     const userObj = {
       firstName: values.firstName,
@@ -44,12 +49,6 @@ const UserForm = ({ users, setUsers, setCurrentUser }) => {
       validationSchema={validationSchema}
     />
   );
-};
-
-UserForm.propTypes = {
-  users: PropTypes.array.isRequired,
-  setUsers: PropTypes.func.isRequired,
-  setCurrentUser: PropTypes.func.isRequired,
 };
 
 export default UserForm;

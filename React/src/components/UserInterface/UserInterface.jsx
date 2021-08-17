@@ -1,34 +1,11 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import Login from "./components/Login";
 import AddEvent from "./components/AddEvent";
+import { CurrentUserContext } from "../../context/CurrentUser";
 
-const UserInterface = ({ users, setUsers, events, setEvents }) => {
-  const [currentUser, setCurrentUser] = useState();
-  return (
-    <>
-      {currentUser ? (
-        <AddEvent
-          currentUser={currentUser}
-          events={events}
-          setEvents={setEvents}
-        />
-      ) : (
-        <Login
-          users={users}
-          setUsers={setUsers}
-          setCurrentUser={setCurrentUser}
-        />
-      )}
-    </>
-  );
-};
-
-UserInterface.propTypes = {
-  users: PropTypes.array.isRequired,
-  setUsers: PropTypes.func.isRequired,
-  events: PropTypes.array.isRequired,
-  setEvents: PropTypes.func.isRequired,
+const UserInterface = () => {
+  const currentUser = useContext(CurrentUserContext)[0];
+  return <>{currentUser ? <AddEvent /> : <Login />}</>;
 };
 
 export default UserInterface;

@@ -1,13 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import Event from "./components/Event";
 import "./EventList.css";
+import { UsersContext } from "../../context/Users";
+import { EventsContext } from "../../context/Events";
 
-const EventList = ({ users, events }) => {
+const EventList = () => {
+  const usersList = useContext(UsersContext)[0];
+  const eventsList = useContext(EventsContext)[0];
+
   return (
     <div className='event-list-container'>
-      {events.map((event) => {
-        const organizer = users.find((user) => user._id === event.organizer);
+      {eventsList.map((event) => {
+        const organizer = usersList.find(
+          (user) => user._id === event.organizer
+        );
         const eventDate = new Date(event.date).toLocaleString();
         return (
           <Event
@@ -20,11 +26,6 @@ const EventList = ({ users, events }) => {
       })}
     </div>
   );
-};
-
-EventList.propTypes = {
-  users: PropTypes.array.isRequired,
-  events: PropTypes.array.isRequired,
 };
 
 export default EventList;

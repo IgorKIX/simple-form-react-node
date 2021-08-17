@@ -1,7 +1,12 @@
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import "./UsersList.css";
+import { UsersContext } from "../../../../../../context/Users";
+import { CurrentUserContext } from "../../../../../../context/CurrentUser";
 
-const UsersList = ({ users, setCurrentUser }) => {
+const UsersList = () => {
+  const users = useContext(UsersContext)[0];
+  const setCurrentUser = useContext(CurrentUserContext)[1];
+
   const setUserAsCurrent = (user) => {
     setCurrentUser(user);
   };
@@ -28,11 +33,6 @@ const UsersList = ({ users, setCurrentUser }) => {
       <div className='users-list'>{renderUsers()}</div>
     </div>
   );
-};
-
-UsersList.propTypes = {
-  users: PropTypes.array.isRequired,
-  setCurrentUser: PropTypes.func.isRequired,
 };
 
 export default UsersList;

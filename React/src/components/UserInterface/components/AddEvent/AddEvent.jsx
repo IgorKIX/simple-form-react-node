@@ -1,10 +1,14 @@
 import * as Yup from "yup";
-import PropTypes from "prop-types";
 import eventsService from "../../../../services/events";
-import React from "react";
+import React, { useContext } from "react";
 import AddEventView from "./AddEvent.view";
+import { EventsContext } from "../../../../context/Events";
+import { CurrentUserContext } from "../../../../context/CurrentUser";
 
-const AddEvent = ({ currentUser, events, setEvents }) => {
+const AddEvent = () => {
+  const [events, setEvents] = useContext(EventsContext);
+  const currentUser = useContext(CurrentUserContext)[0];
+
   const onSubmit = (values) => {
     const eventObj = {
       name: values.eventName,
@@ -42,12 +46,6 @@ const AddEvent = ({ currentUser, events, setEvents }) => {
       validation={validation}
     />
   );
-};
-
-AddEvent.propTypes = {
-  currentUser: PropTypes.object.isRequired,
-  events: PropTypes.array.isRequired,
-  setEvents: PropTypes.func.isRequired,
 };
 
 export default AddEvent;
